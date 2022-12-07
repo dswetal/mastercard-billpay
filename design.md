@@ -1,19 +1,48 @@
-# Welcome to StackEdit!
 
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
+# Bill Pay Application for XYZ corporation
 
 
-# Files
+## Problem statement
 
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
+XYZ Corporation would like to create a new bill payment application to act as hub between customers and billers. XYZ Corporation will maintain customer account with balances in it, will maintain biller list along with bill data and will store all transaction data.
 
-## Create files and folders
+## Functional requirements
+#### 1.Registration :
+ Provide a feature to “register” customer for paying bills. As part of registration capture email id only. Successful registration should create a “stored value account’ (wallet) associated with the registered customer. Option for customer to move funds to the wallet as part of registration.
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+#### 2.Pay Biller :
+ Pay your utility bills
+a) Fetch billers and bill from 3rd party external applications.
+b) Select a biller, fetch the bill and pay that using the wallet.
+c) Move funds from customer wallet to biller account.
+#### 3.Bulk/File based Bill Payment
+Process bill payments for N number of records received in a fi le.Multiple fi les can be received in a day. Design should supportfollowing use cases
 
-## Switch to another file
+UC 1
+Design assuming XYZ provides a standard specification for Inbound bill payment file and customers (corporates, banks, service providers)adheres to this format when sending the bill pay file.
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
+UC2
+Design should also support non standard format / adhoc format in
+future. The design should require minimal code changes to support
+new file formats introduced in future.
+
+## Solution
+#### High level design
+
+#### Block diagram
+
+
+
+
+#### NFR (Non function al requirements)
+
+##### Security
+##### Logging & Monitoring
+##### Auto scaling
+##### CI CD processes and tech stack
+##### Automation of test suites
+##### Support PI/PCI Data. Application should be PCI complaint.
+
 
 ## Rename a file
 
