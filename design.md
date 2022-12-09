@@ -34,6 +34,10 @@ new file formats introduced in future.
 
 ![design](https://github.com/dswetal/mastercard-billpay/blob/main/high_level.png)
 
+#### Sequence diagram
+
+![sequence diagram](https://github.com/dswetal/mastercard-billpay/blob/main/SequenceDiagram.vsdx)
+
 
 
 
