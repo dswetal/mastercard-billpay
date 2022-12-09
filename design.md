@@ -31,6 +31,8 @@ new file formats introduced in future.
 
 There will be 2 micro-services
 
+For API definition please refer to swagger file [here](https://github.com/dswetal/mastercard-billpay/blob/main/API_definition_swagger.yaml)
+
  1. Wallet Service
 
 		Wallet service will expose api's for following functions 
@@ -59,7 +61,7 @@ There will be 2 micro-services
 			b. Database : Postgress 
 			c. Deployed on AWS cloud
 
-For API definition please refer to swagger file [here](https://github.com/dswetal/mastercard-billpay/blob/main/API_definition_swagger.yaml)
+
  
 
 #### Block diagram
