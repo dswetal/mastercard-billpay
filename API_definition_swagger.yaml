@@ -38,6 +38,39 @@ paths:
               schema:
                 type: "string"
                 example : "Customer registerd"
+  /addmoney/{emailId}:
+    post:
+      tags:
+        - Wallet Service
+      summary: Resgister new customer
+      parameters: 
+        - in: path
+          name: emailId
+          schema:
+            type: string
+          required: true 
+      requestBody:
+        description: Update an existent pet in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Currency'
+        required: true
+      responses:
+        400:
+          $ref: "#/components/responses/400"
+        429:
+          $ref: "#/components/responses/429"
+        500:
+          $ref: "#/components/responses/500"
+        200:
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                example : "Customer registerd"
+  
   /balance/{emailId}:
     get:
       tags: 
@@ -61,7 +94,40 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/WalletBalance"
+                $ref: "#/components/schemas/Currency"
+                
+  /pay/{emailId}:            
+    post:
+      tags:
+        - Wallet Service
+      summary: Pay from wallet
+      parameters: 
+        - in: path
+          name: emailId
+          schema:
+            type: string
+          required: true  
+      requestBody:
+        description: Update an existent pet in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        400:
+          $ref: "#/components/responses/400"
+        429:
+          $ref: "#/components/responses/429"
+        500:
+          $ref: "#/components/responses/500"
+        200:
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                example : "Customer registerd"
     
     
 components:
@@ -115,8 +181,9 @@ components:
         emailId:
           type: string
           example: abc@gmail.com
-    
-    WalletBalance:      
+          
+  
+    Currency:      
       type: object
       properties:
         amount:
