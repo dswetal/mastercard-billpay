@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: Bill pay application for XYZ corporation
+  description: |-
+    This is API design of bill pay application for XYZ corporation
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+
+paths:
+  /register:
+    post:
+      tags:
+        - Wallet Service
+      summary: Resgister new customer
+      requestBody:
+        description: Update an existent pet in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        400:
+          $ref: "#/components/responses/400"
+        429:
+          $ref: "#/components/responses/429"
+        500:
+          $ref: "#/components/responses/500"
+        200:
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                example : "Customer registerd"
+  /balance/{emailId}:
+    get:
+      tags: 
+        - Wallet Service
+      summary: Get balance
+      parameters: 
+        - in: path
+          name: emailId
+          schema:
+            type: string
+          required: true  
+      responses:
+        400:
+          $ref: "#/components/responses/400"
+        429:
+          $ref: "#/components/responses/429"
+        500:
+          $ref: "#/components/responses/500"
+        200:
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WalletBalance"
+    
+    
+components:
+  responses:
+    429:
+      description: "Too Many Requests"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/APIFailure"
+    404:
+      description: "Resource Not Found"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/APIFailure"
+    400:
+      description: "Bad Request"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/APIFailure"
+    500:
+      description: "Internal Server Error"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/APIFailure"
+  schemas:
+    APIFailure:
+      required:
+        - "error"
+      type: "object"
+      properties:
+        error:
+          required:
+            - "code"
+            - "message"
+          type: "object"
+          properties:
+            message:
+              type: "string"
+              description: "The message Info"
+            code:
+              type: "string"
+              description: "The code error"
+    
+    Customer:
+      type: object
+      properties:
+        emailId:
+          type: string
+          example: abc@gmail.com
+    
+    WalletBalance:      
+      type: object
+      properties:
+        amount:
+          type: number
+          example: 2
+        currency:
+          type: string
+          example: "$"
+    
