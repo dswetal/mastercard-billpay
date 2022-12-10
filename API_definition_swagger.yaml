@@ -220,10 +220,9 @@ paths:
       requestBody:
         description: Update an existent pet in the store
         content:
-          application/json:
+          multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Customer'
-        required: true
+              $ref: "#/components/schemas/BulkUploadRequest"
       responses:
         400:
           $ref: "#/components/responses/400"
@@ -237,7 +236,7 @@ paths:
             application/json:
               schema:
                 type: "string"
-                example : "Customer registerd"    
+                example : "Bulk request received"    
     
     
     
@@ -346,5 +345,15 @@ components:
         amount: 
           type: number
           example: 800
+          
+    BulkUploadRequest:
+      type: "object"
+      properties:
+        bulk_identifier:
+          type: "string"
+          example: "bulk_for_new_upates"
+        file:
+          type: string
+          format: binary      
     
     
