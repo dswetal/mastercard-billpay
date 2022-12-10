@@ -204,7 +204,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Currency"        
+                $ref: "#/components/schemas/billingHistoryReponse"        
                 
   /billpay/bulkpay/{emailId}:     
     post:
@@ -296,6 +296,13 @@ components:
         billers :
           items: 
             $ref: "#/components/schemas/Biller" 
+            
+    billingHistoryReponse:        
+      type: object
+      properties:
+        billers :
+          items: 
+            $ref: "#/components/schemas/BillingHistory" 
           
       
     
@@ -326,4 +333,18 @@ components:
         name:
           type: string
           example: "VIMobile"      
+    
+    BillingHistory:
+      type: object
+      properties:
+        billerName: 
+          type: string
+          example: "VIMobile"
+        billingDate:
+          type: string
+          example: "01 Nov 2022"
+        amount: 
+          type: number
+          example: 800
+    
     
