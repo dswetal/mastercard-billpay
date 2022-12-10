@@ -46,8 +46,8 @@ For API definition please refer to swagger file [here](https://github.com/dsweta
 			b. Database : Postgress 
 			c. Deployed on AWS cloud
 
-		DataModel :
-		![design](https://github.com/dswetal/mastercard-billpay/blob/main/WalletServiceDM.png)
+	DataModel :
+	![design](https://github.com/dswetal/mastercard-billpay/blob/main/WalletServiceDM.png)
 		
 	
 
