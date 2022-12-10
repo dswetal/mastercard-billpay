@@ -15,7 +15,7 @@ paths:
   /wallet/register:
     post:
       tags:
-        - Wallet Service
+        - Wallet Service external
       summary: Resgister new customer
       requestBody:
         description: Update an existent pet in the store
@@ -41,7 +41,7 @@ paths:
   /wallet/addmoney/{emailId}:
     post:
       tags:
-        - Wallet Service
+        - Wallet Service external
       summary: Resgister new customer
       parameters: 
         - in: path
@@ -74,7 +74,7 @@ paths:
   /wallet/balance/{emailId}:
     get:
       tags: 
-        - Wallet Service
+        - Wallet Service external
       summary: Get balance
       parameters: 
         - in: path
@@ -99,7 +99,7 @@ paths:
   /wallet/pay/{emailId}:            
     post:
       tags:
-        - Wallet Service
+        - Wallet Service internal
       summary: Pay from wallet
       parameters: 
         - in: path
@@ -112,7 +112,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Customer'
+              $ref: '#/components/schemas/Currency'
         required: true
       responses:
         400:
@@ -132,7 +132,7 @@ paths:
   /billpay/pay/{emailId} :    
     post:
       tags:
-        - Bill pay Service
+        - Bill pay Service external
       summary: Pay from wallet
       parameters: 
         - in: path
@@ -165,7 +165,7 @@ paths:
   /billpay/fetchbillers:     
     get:
       tags: 
-        - Bill pay Service
+        - Bill pay Service external
       summary: Fetch billers
       responses:
         400:
@@ -179,11 +179,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Currency"
+                $ref: "#/components/schemas/fetchBillerResponse"
+  
   /billpay/fetchhistory/{emailId}:     
     get:
       tags: 
-        - Bill pay Service
+        - Bill pay Service external
       summary: Fetch billers
       parameters: 
         - in: path
@@ -208,7 +209,7 @@ paths:
   /billpay/bulkpay/{emailId}:     
     post:
       tags: 
-        - Bill pay Service
+        - Bill pay Service external
       summary: Fetch billers
       parameters: 
         - in: path
@@ -267,6 +268,9 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/APIFailure"
+    
+      
+            
   schemas:
     APIFailure:
       required:
@@ -286,6 +290,15 @@ components:
               type: "string"
               description: "The code error"
     
+    fetchBillerResponse:
+      type: object
+      properties:
+        billers :
+          items: 
+            $ref: "#/components/schemas/Biller" 
+          
+      
+    
     Customer:
       type: object
       properties:
@@ -303,4 +316,14 @@ components:
         currency:
           type: string
           example: "$"
+          
+    Biller:      
+      type: object
+      properties:
+        id:
+          type: string
+          example: "vimobile123"
+        name:
+          type: string
+          example: "VIMobile"      
     
