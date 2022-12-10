@@ -77,8 +77,13 @@ For API definition please refer to swagger file [here](https://github.com/dsweta
 	
 	![design](https://github.com/dswetal/mastercard-billpay/blob/main/BoundedContext.PNG)	
 
+	Testing Strategy
+	
+	 1. Each service will have Automated Junit tests, these tests will run when service will be compiled.
+	 2. Integration testing, this is where  service end points will be tested.
+	 3. End to end test, these tests will test actual use flow of functional use cases. These tests will be run by GitLab pipeline after deploying to specific environment. 
 
- 
+	 
 
 #### Block diagram
 
@@ -123,7 +128,19 @@ For API definition please refer to swagger file [here](https://github.com/dsweta
 Auto scaling will be managed by Kubernetes 
 
 ##### CI CD processes and tech stack
+
+GitLab will be used as CI/CD technology.
+
+Deployment will happen to following environment :
+Dev -> Test -> Staging -> Production
+
+On each environment automated tests will run after deployment. 
+
+
+
 ##### Automation of test suites
+
+
 ##### Support PI/PCI Data. Application should be PCI complaint.
 
 
