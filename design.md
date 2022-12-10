@@ -66,6 +66,11 @@ For API definition please refer to swagger file [here](https://github.com/dsweta
 			a. Spring boot microservice deployed on Kubernetes 
 			b. Database : Postgress 
 			c. Deployed on AWS cloud
+			
+	
+	DataModel :
+	
+	![design](https://github.com/dswetal/mastercard-billpay/blob/main/BillServiceDM.png)
 
 
  
