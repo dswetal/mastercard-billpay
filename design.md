@@ -79,8 +79,33 @@ For API definition please refer to swagger file [here](https://github.com/dsweta
 #### NFR (Non function al requirements)
 
 ##### Security
+
+ 1. Authentication / authorization
+		a. OATH 2 authentication nd authorization mechanism will be used
+		b. Before hitting load balancer for any operation client must get token from Auth server
+		c. Each API will check authentication and authorization for the token and if valid then serve the request.
+		
+2. Data security
+		a. Each data base will persist PII(personally identifiable information) data in encrypted form only, lookup columns like emailId will be hashed for easy lookup. 
+
+	 
 ##### Logging & Monitoring
+
+ 1. Logging 
+	 a. Each service will log information in  standard format where each log line will have follwing attributes 
+		 - Service ID
+		 - Correlation ID
+		 - TimeStamp
+		 - Additional information
+
+ 2. Monitoring
+	 Logs will be published to DataDog for easy monitoring.
+
+ 
 ##### Auto scaling
+
+Auto scaling will be managed by Kubernetes 
+
 ##### CI CD processes and tech stack
 ##### Automation of test suites
 ##### Support PI/PCI Data. Application should be PCI complaint.
