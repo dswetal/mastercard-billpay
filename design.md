@@ -71,6 +71,11 @@ For API definition please refer to swagger file [here](https://github.com/dsweta
 	DataModel :
 	
 	![design](https://github.com/dswetal/mastercard-billpay/blob/main/BillServiceDM.png)
+	
+
+ Bounded Context :
+	
+	![design](https://github.com/dswetal/mastercard-billpay/blob/main/BoundedContext.png)	
 
 
  
