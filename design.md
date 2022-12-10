@@ -75,7 +75,7 @@ For API definition please refer to swagger file [here](https://github.com/dsweta
 
  	Bounded Context :
 	
-	![design](https://github.com/dswetal/mastercard-billpay/blob/main/BoundedContext.png)	
+	![design](https://github.com/dswetal/mastercard-billpay/blob/main/BoundedContext.PNG)	
 
 
  
